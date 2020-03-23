@@ -3,20 +3,22 @@
 
 module.exports = function towelSort (matrix) {
   
-    if(matrix == undefined){
-        return [];
-    }
+    if (matrix === undefined) return [];
 
-    let Array = [];
-  
-    for(let i = 0; i < matrix.length; i++){
-      if(i % 2 != 0){
-        matrix[i] = matrix[i].reverse();
-      }
-      for(let j = 0; j < matrix[i].length; j++){
-        arr.push(matrix[i][j]);
+  let array = [];
+
+  for (let i = 0; i < matrix.length; i++) {
+    if (i % 2 === 0) {
+      for (let j = 0; j < matrix[i].length; j++) {
+        array.push(matrix[i][j]);
       }
     }
-  
-    return Array;
+    else { 
+      for (let j = 0; j < matrix[i].length; j++) {
+        array.push(matrix[i][matrix[i].length - (j+1)]);
+      }
+    }
+  }
+
+  return array;
 }
